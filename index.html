@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martin Bünger Architekt — Bad Honnef</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #0D0D0D; -webkit-font-smoothing: antialiased; }
+    a { transition: color 0.2s; text-decoration: none; }
+    a:hover { color: #000 !important; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    .project-card .overlay { opacity: 0; transition: opacity 0.3s ease; }
+    .project-card:hover .overlay { opacity: 1; }
+
+    .filter-btn {
+      cursor: pointer; background: none; border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding-bottom: 2px; color: #9CA3AF;
+    }
+    .filter-btn.active {
+      color: #0D0D0D;
+      border-bottom: 1px solid #0D0D0D;
+    }
+
+    .project-card[data-hidden="true"] { display: none; }
+    .link-on-dark:hover { color: #fff !important; opacity: 0.7; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .vita-grid  { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .leistungen-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .kontakt-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+      .project-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* ── Lightbox ── */
+    #lightbox { display: none; }
+    #lbPrev, #lbNext {
+      background: none; border: none; cursor: pointer;
+      position: absolute; top: 0; height: 100%; width: 14%;
+      display: flex; align-items: center;
+      transition: background 0.35s ease;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+    }
+    #lbPrev { left: 0; justify-content: flex-start; padding-left: 1.8rem;
+      background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, transparent 100%); }
+    #lbNext { right: 0; justify-content: flex-end; padding-right: 1.8rem;
+      background: linear-gradient(to left, rgba(0,0,0,0.3) 0%, transparent 100%); }
+    #lbPrev:hover { background: linear-gradient(to right, rgba(0,0,0,0.55) 0%, transparent 100%); }
+    #lbNext:hover { background: linear-gradient(to left, rgba(0,0,0,0.55) 0%, transparent 100%); }
+    #lbPrev:hover .lb-chevron, #lbNext:hover .lb-chevron { opacity: 0.95; }
+    .lb-chevron { opacity: 0.38; transition: opacity 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav style="
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 6%;
+    position: sticky; top: 0;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid #E5E5E5;
+    z-index: 100;
+  ">
+    <a href="#" style="font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:#0D0D0D;">
+      Martin Bünger Architekt
+    </a>
+    <div class="nav-links" style="display:flex;gap:2.5rem;align-items:center;">
+      <a href="#leistungen" style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Leistungen</a>
+      <a href="#projekte" style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Projekte</a>
+      <a href="#buero"    style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Büro</a>
+      <a href="#vita"     style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Vita</a>
+      <a href="#kontakt"  style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Kontakt</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section style="position:relative;width:100%;aspect-ratio:16/7;overflow:hidden;background:#E8E4DE;min-height:320px;">
+    <!-- Foto gedämpft: Sättigung reduziert, leicht aufgehellt -->
+    <img src="image.png" alt="Architekturbüro Martin Bünger" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(0.7) brightness(1.08);">
+    <!-- Gradient-Overlay für Lesbarkeit des Textes -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.15) 60%, transparent 100%);"></div>
+    <div style="position:absolute;inset:0;display:flex;align-items:flex-end;">
+      <div style="padding:3rem 6%;max-width:780px;">
+        <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#4B4B4B;margin-bottom:0.9rem;">
+          Architekturbüro Bad Honnef — seit 1998
+        </p>
+        <h1 style="font-family:'DM Sans',sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;line-height:1.08;letter-spacing:-0.025em;color:#0D0D0D;margin:0;">
+          Architektur,<br>die bleibt.
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INTRO ═══ -->
+  <section style="padding:5.5rem 6%;">
+    <p style="font-family:'DM Sans',sans-serif;font-size:clamp(1.1rem,2vw,1.42rem);font-weight:300;line-height:1.72;color:#0D0D0D;letter-spacing:-0.01em;max-width:800px;">
+      Seit 1998 begleitet Martin Bünger Bauherren in der Region zwischen Bonn und dem Siebengebirge — vom ersten Entwurf bis zur Fertigstellung. Das Büro steht für präzises Handwerk, klare Haltung und eine Architektur, die dem Ort und den Menschen gerecht wird.
+    </p>
+  </section>
+
+  <!-- ═══ LEISTUNGEN ═══ -->
+  <section id="leistungen" style="padding:7rem 6%;background:#F7F7F7;">
+    <div class="leistungen-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start;">
+      <div>
+        <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#9CA3AF;margin-bottom:1.5rem;">Leistungen</p>
+        <h2 style="font-family:'DM Sans',sans-serif;font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:300;line-height:1.28;letter-spacing:-0.02em;color:#0D0D0D;">
+          Vollständige<br>Betreuung —<br>von Anfang<br>bis Ende.
+        </h2>
+      </div>
+      <div>
+
+        <div style="padding-bottom:2rem;border-bottom:1px solid #E5E5E5;">
+          <p style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:0.6rem;">Planung & Ausführung</p>
+          <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Alle Leistungsphasen 1–9</p>
+          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Von der Grundlagenermittlung und dem ersten Entwurf über Genehmigungs- und Ausführungsplanung bis zur Objektüberwachung und finalen Objektbetreuung — das Büro begleitet jedes Projekt lückenlos durch alle neun Leistungsphasen nach HOAI.</p>
+        </div>
+
+        <div style="padding:2rem 0;border-bottom:1px solid #E5E5E5;">
+          <p style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:0.6rem;">Beratung</p>
+          <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Kaufberatung</p>
+          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Fundierte Einschätzung von Bestandsimmobilien vor dem Kauf: Bausubstanz, Entwicklungspotenzial und mögliche Risiken — für eine sichere Entscheidungsgrundlage.</p>
+        </div>
+
+        <div style="padding-top:2rem;">
+          <p style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:0.6rem;">Wohnungseigentum</p>
+          <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Abgeschlossenheitsbescheinigung</p>
+          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Erstellung der erforderlichen Anträge und Unterlagen zur Bescheinigung der Abgeschlossenheit von Wohnungs- und Teileigentum — Voraussetzung für die Begründung von Wohnungseigentum nach WEG.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJEKTE ═══ -->
+  <section id="projekte" style="padding:0 6% 7rem;">
+
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;">
+      <h2 style="font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:#9CA3AF;">
+        Projekte
+      </h2>
+      <div style="display:flex;gap:1.5rem;" id="filterBtns">
+        <button class="filter-btn active" data-filter="alle">Alle</button>
+        <button class="filter-btn" data-filter="neubau">Neubau</button>
+        <button class="filter-btn" data-filter="umbau">Umbau</button>
+        <button class="filter-btn" data-filter="gewerbe">Gewerbe</button>
+      </div>
+    </div>
+
+    <div class="project-grid" id="projektGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:2px;"></div>
+  </section>
+
+  <!-- ═══ BÜRO / ABOUT ═══ -->
+  <section id="buero" style="padding:7rem 6%;background:#F7F7F7;">
+    <div class="about-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start;">
+      <div>
+        <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#9CA3AF;margin-bottom:1.5rem;">Büro</p>
+        <h2 style="font-family:'DM Sans',sans-serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:300;line-height:1.2;letter-spacing:-0.02em;color:#0D0D0D;">
+          Martin Bünger<br>Architekturbüro<br>seit 1998
+        </h2>
+      </div>
+      <div>
+        <p style="font-size:1rem;color:#4B4B4B;line-height:1.82;margin-bottom:2.5rem;">
+          Architektur entsteht zwischen Funktion und Form, zwischen dem Wunsch des Bauherrn und den Möglichkeiten des Ortes. Martin Bünger verbindet ein Architekturstudium an der FH Köln mit einer früheren Ausbildung als Metallbildhauer — ein Hintergrund, der das Gespür für Material, Proportion und handwerkliche Präzision schärft. Das Büro in Bad Honnef betreut Projekte in der gesamten Region, vom privaten Einfamilienhaus bis zur öffentlichen Einrichtung, vom Neubau bis zur denkmalgerechten Restaurierung.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <span style="font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid #D1D1D1;padding:0.35rem 0.85rem;color:#4B4B4B;">Ein- & Mehrfamilienhäuser</span>
+          <span style="font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid #D1D1D1;padding:0.35rem 0.85rem;color:#4B4B4B;">Barrierefreies Bauen</span>
+          <span style="font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid #D1D1D1;padding:0.35rem 0.85rem;color:#4B4B4B;">Büro- & Gewerbeobjekte</span>
+          <span style="font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid #D1D1D1;padding:0.35rem 0.85rem;color:#4B4B4B;">Kaufberatung</span>
+          <span style="font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid #D1D1D1;padding:0.35rem 0.85rem;color:#4B4B4B;">Restaurierungen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VITA ═══ -->
+  <section id="vita" style="padding:7rem 6%;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#9CA3AF;margin-bottom:4rem;">Vita</p>
+      <div class="vita-grid" style="display:grid;grid-template-columns:1fr 2fr;gap:6rem;">
+
+        <div>
+          <h2 style="font-family:'DM Sans',sans-serif;font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:300;line-height:1.28;letter-spacing:-0.02em;color:#0D0D0D;">
+            Martin Bünger<br>Architekt
+          </h2>
+          <p style="font-size:0.82rem;color:#9CA3AF;margin-top:1.2rem;line-height:1.7;">
+            Geb. 13. August 1959<br>in Bonn-Beuel
+          </p>
+          <p style="font-size:0.78rem;color:#9CA3AF;margin-top:1.3rem;line-height:1.7;">
+            Architektenkammer NRW<br>Mitgliedsnr. A 27058
+          </p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:0;">
+
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:2rem;padding-bottom:2rem;border-bottom:1px solid #E5E5E5;">
+            <p style="font-size:0.74rem;color:#9CA3AF;letter-spacing:0.04em;padding-top:3px;">1983 – 1992</p>
+            <div>
+              <p style="font-size:0.95rem;color:#0D0D0D;margin-bottom:0.3rem;">Architekturstudium</p>
+              <p style="font-size:0.85rem;color:#4B4B4B;line-height:1.65;">Fachhochschule Köln, mit paralleler Tätigkeit in verschiedenen Architekturbüros</p>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid #E5E5E5;">
+            <p style="font-size:0.74rem;color:#9CA3AF;letter-spacing:0.04em;padding-top:3px;">1983 – 1986</p>
+            <div>
+              <p style="font-size:0.95rem;color:#0D0D0D;margin-bottom:0.3rem;">Kunststudium Metallbildhauerei</p>
+              <p style="font-size:0.85rem;color:#4B4B4B;line-height:1.65;">Köln, Ubierring</p>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid #E5E5E5;">
+            <p style="font-size:0.74rem;color:#9CA3AF;letter-spacing:0.04em;padding-top:3px;">1992 – 1993</p>
+            <div>
+              <p style="font-size:0.95rem;color:#0D0D0D;margin-bottom:0.3rem;">Freiberufliche Architekturtätigkeit</p>
+              <p style="font-size:0.85rem;color:#4B4B4B;line-height:1.65;">Köln</p>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid #E5E5E5;">
+            <p style="font-size:0.74rem;color:#9CA3AF;letter-spacing:0.04em;padding-top:3px;">1993 – 1998</p>
+            <div>
+              <p style="font-size:0.95rem;color:#0D0D0D;margin-bottom:0.3rem;">Angestellter Architekt</p>
+              <p style="font-size:0.85rem;color:#4B4B4B;line-height:1.65;">Schütz & Partner — Projekt- und Büroleitungsaufgaben</p>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:2rem 0;">
+            <p style="font-size:0.74rem;color:#9CA3AF;letter-spacing:0.04em;padding-top:3px;">Seit 1998</p>
+            <div>
+              <p style="font-size:0.95rem;color:#0D0D0D;margin-bottom:0.3rem;">Eigenes Architekturbüro</p>
+              <p style="font-size:0.85rem;color:#4B4B4B;line-height:1.65;">Bad Honnef — Leitung des Architekturbüros Martin Bünger</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ KONTAKT ═══ -->
+  <section id="kontakt" style="padding:7rem 6%;background:#0D0D0D;">
+    <div class="kontakt-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:end;">
+      <div>
+        <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#6B7280;margin-bottom:1.5rem;">Kontakt</p>
+        <h2 style="font-family:'DM Sans',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;letter-spacing:-0.025em;color:#fff;margin-bottom:2.5rem;">
+          Lassen Sie uns<br>gemeinsam planen.
+        </h2>
+        <a href="mailto:martin.buenger@t-online.de" class="link-on-dark" style="font-size:1rem;color:#fff;border-bottom:1px solid rgba(255,255,255,0.28);padding-bottom:3px;">
+          martin.buenger@t-online.de
+        </a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.55rem;align-self:end;">
+        <p style="font-size:0.85rem;color:#6B7280;line-height:1.85;">
+          Linzer Straße 21<br>53604 Bad Honnef
+        </p>
+        <p style="font-size:0.85rem;color:#6B7280;margin-top:0.5rem;">T 02224 / 941 306</p>
+        <p style="font-size:0.85rem;color:#6B7280;">F 02224 / 941 630</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer style="padding:1.5rem 6%;background:#0D0D0D;border-top:1px solid #1A1A1A;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+    <p style="font-size:0.7rem;color:#4B5563;letter-spacing:0.04em;">© 2025 Architekturbüro Martin Bünger. Alle Rechte vorbehalten.</p>
+
+    <!-- Architektenkammer-Zeichen -->
+    <a href="https://www.aknw.de" target="_blank" rel="noopener" title="Eingetragen bei der Architektenkammer NRW · A 27058" style="display:flex;align-items:center;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='0.45'">
+      <img src="download.png" alt="Architektenkammer NRW" style="height:36px;width:auto;filter:invert(1);">
+    </a>
+
+    <div style="display:flex;gap:1.5rem;">
+      <a href="impressum.html" style="font-size:0.7rem;color:#4B5563;letter-spacing:0.04em;">Impressum</a>
+      <a href="datenschutz.html" style="font-size:0.7rem;color:#4B5563;letter-spacing:0.04em;">Datenschutz</a>
+    </div>
+  </footer>
+
+  <!-- ═══ LIGHTBOX ═══ -->
+  <div id="lightbox" style="position:fixed;inset:0;z-index:999;background:#0D0D0D;flex-direction:column;">
+
+    <!-- Top bar -->
+    <div style="flex-shrink:0;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2.5rem;border-bottom:1px solid #1C1C1C;">
+      <div style="display:flex;align-items:baseline;gap:1rem;">
+        <span id="lbMeta" style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:#6B7280;font-family:'Inter',sans-serif;"></span>
+        <span id="lbTitel" style="font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:400;color:#C8C8C8;"></span>
+      </div>
+      <div style="display:flex;align-items:center;gap:2.5rem;">
+        <span id="lbCounter" style="font-size:0.7rem;color:#6B7280;font-family:'Inter',sans-serif;letter-spacing:0.06em;"></span>
+        <button onclick="closeLightbox()" style="background:none;border:none;cursor:pointer;color:#6B7280;font-size:1.6rem;line-height:1;padding:0.15rem 0.4rem;font-family:'Inter',sans-serif;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#6B7280'">×</button>
+      </div>
+    </div>
+
+    <!-- Image area -->
+    <div id="lbImageArea" style="flex:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+      <img id="lbImg" src="" alt="" style="max-width:100%;max-height:100%;object-fit:contain;transition:opacity 0.2s ease;">
+      <button id="lbPrev" onclick="lbNavigate(-1)" aria-label="Vorheriges Bild">
+        <svg class="lb-chevron" width="22" height="42" viewBox="0 0 22 42" fill="none">
+          <path d="M18 3 L3 21 L18 39" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button id="lbNext" onclick="lbNavigate(1)" aria-label="Nächstes Bild">
+        <svg class="lb-chevron" width="22" height="42" viewBox="0 0 22 42" fill="none">
+          <path d="M4 3 L19 21 L4 39" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+  /* ═══════════════════════════════════════════════════════════════════════
+     PROJEKT-KONFIGURATION
+     ───────────────────────────────────────────────────────────────────────
+     Bilder hochladen nach:  images/projekte/{id}/
+
+     cover   → Dateiname des Bilds, das auf der STARTSEITE erscheint.
+               Einfach ändern, um ein anderes Bild als Vorschau zu wählen.
+               Beispiel:  cover: '03.jpg'
+
+     bilder  → Alle Bilder für die Galerie, in gewünschter Reihenfolge.
+               Das cover-Bild muss hier ebenfalls enthalten sein.
+               Neue Bilder einfach zur Liste hinzufügen.
+  ═══════════════════════════════════════════════════════════════════════ */
+  const PROJEKTE = [
+    // ── NEUBAU ──────────────────────────────────────────────────────────
+    {
+      id:         'villa-wilhelmstrasse',
+      titel:      'Villa Wilhelmstraße',
+      ort:        'Bad Honnef',
+      typ:        'Neubau',
+      kategorie:  'neubau',
+      bgFallback: '#E8E4DE',
+      cover:      '03-3.jpg',         // ← Startseiten-Bild hier ändern
+      bilder:     [                   // ← Bilder für die Galerie
+        '01-1.jpg',
+        '02-2.jpg',
+        '03-3.jpg',
+        '04-4.jpg',
+        '05-5.jpg',
+        '06-6.jpg',
+        '07-7.jpg',
+        '08-8.jpg',
+      ],
+    },
+    {
+      id:         'mehrfamilienhaus-tiedke',
+      titel:      'Mehrfamilienhaus Tiedke',
+      ort:        'Bonn',
+      typ:        'Neubau',
+      kategorie:  'neubau',
+      bgFallback: '#D5D0C8',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    {
+      id:         'einfamilienhaus-koelcke',
+      titel:      'Einfamilienhaus Kölcke',
+      ort:        'Bad Honnef',
+      typ:        'Neubau',
+      kategorie:  'neubau',
+      bgFallback: '#EAE8E4',
+      cover:      '03-3.jpg',
+      bilder:     [
+        '01-1.jpg',
+        '02-2.jpg',
+        '03-3.jpg',
+        '04-4.jpg',
+        '05-5.jpg',
+      ],
+    },
+    {
+      id:         'wohngebaeude-tiefgarage',
+      titel:      'Wohngebäude mit Tiefgarage',
+      ort:        'Bad Honnef',
+      typ:        'Neubau',
+      kategorie:  'neubau',
+      bgFallback: '#DDDAD4',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    {
+      id:         'finca-mallorca',
+      titel:      'Finca',
+      ort:        'Mallorca',
+      typ:        'Neubau',
+      kategorie:  'neubau',
+      bgFallback: '#C8C3BA',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    {
+      id:         'wohn-buerogebaeude-tiefgarage',
+      titel:      'Wohn- & Bürogebäude mit Tiefgarage',
+      ort:        '',
+      typ:        'Neubau',
+      kategorie:  'neubau',
+      bgFallback: '#E0DDD7',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    // ── UMBAU ───────────────────────────────────────────────────────────
+    {
+      id:         'dachausbau-einfamilienhaus',
+      titel:      'Dachausbau Einfamilienhaus',
+      ort:        '',
+      typ:        'Umbau & Sanierung',
+      kategorie:  'umbau',
+      bgFallback: '#EAE8E4',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    {
+      id:         'fachwerkhaus-erweiterung-koenigswinter',
+      titel:      'Fachwerkhaus-Erweiterung',
+      ort:        'Königswinter',
+      typ:        'Denkmalschutz',
+      kategorie:  'umbau',
+      bgFallback: '#D5D0C8',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    {
+      id:         'anbau-firmenich',
+      titel:      'Anbau Einfamilienhaus Firmenich',
+      ort:        'Bad Honnef',
+      typ:        'Anbau',
+      kategorie:  'umbau',
+      bgFallback: '#E8E4DE',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    {
+      id:         'fachwerkhaus-umbau-spiessgasse',
+      titel:      'Fachwerkhaus-Umbau Spießgasse',
+      ort:        'Bad Honnef',
+      typ:        'Denkmalschutz',
+      kategorie:  'umbau',
+      bgFallback: '#DDDAD4',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    {
+      id:         'modernisierung-hoefling',
+      titel:      'Modernisierung Einfamilienhaus Höfling',
+      ort:        '',
+      typ:        'Sanierung',
+      kategorie:  'umbau',
+      bgFallback: '#C8C3BA',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    // ── GEWERBE ─────────────────────────────────────────────────────────
+    {
+      id:         'kita-zedernpark',
+      titel:      'Kindertagesstätte Zedernpark',
+      ort:        'Bad Honnef',
+      typ:        'Öffentlich',
+      kategorie:  'gewerbe',
+      bgFallback: '#EAE8E4',
+      cover:      '00-Bv Zedernpark 1.jpg',
+      bilder:     [
+        '00-Bv Zedernpark 1.jpg',
+        '01-Bv Zedernpark 2.jpg',
+        '02-Bv Zedernpark 3.jpg',
+        '03-Bv Zedernpark 4.jpg',
+        '04-Bv Zedernpark 5.jpg',
+        '05-Bv Zedernpark 6.jpg',
+        '06-Bv Zedernpark 7.jpg',
+        '07-Bv Zedernpark 8.jpg',
+        '08-Bv Zedernpark 9.jpg',
+        '09-Bv Zedernpark 10.jpg',
+        '10-Bv Zedernpark 11.jpg',
+        'IMG_2938_1.jpg',
+        'IMG_2958_1.jpg',
+        'IMG_2958_2.jpg',
+      ],
+    },
+    {
+      id:         'gewerbefassade-ottersbach',
+      titel:      'Gewerbefassade Ottersbach',
+      ort:        'Bonn',
+      typ:        'Gewerbe',
+      kategorie:  'gewerbe',
+      bgFallback: '#D5D0C8',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    {
+      id:         'altenpflegeheim-bad-muenstereifel',
+      titel:      'Altenpflegeheim Um- & Anbau',
+      ort:        'Bad Münstereifel',
+      typ:        'Umbau',
+      kategorie:  'gewerbe',
+      bgFallback: '#DDDAD4',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    {
+      id:         'biogeschaeft-momo',
+      titel:      'Biogeschäft-Erweiterung Momo',
+      ort:        'Bonn-Beuel',
+      typ:        'Gewerbe',
+      kategorie:  'gewerbe',
+      bgFallback: '#E8E4DE',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+    {
+      id:         'fertigturnhalle-hager-hof',
+      titel:      'Fertigturnhalle Hager Hof',
+      ort:        'Bad Honnef',
+      typ:        'Sport',
+      kategorie:  'gewerbe',
+      bgFallback: '#C8C3BA',
+      cover:      '01.jpg',
+      bilder:     ['01.jpg'],
+    },
+  ];
+
+  /* ─── Karten rendern ─────────────────────────────────────────────────── */
+  function renderKarten() {
+    const grid = document.getElementById('projektGrid');
+    grid.innerHTML = PROJEKTE.map((p, i) => {
+      const coverSrc = `images/projekte/${p.id}/${p.cover}`;
+      const meta = [p.ort, p.typ].filter(Boolean).join(' — ');
+      return `
+        <div class="project-card" data-cat="${p.kategorie}" data-idx="${i}"
+             style="position:relative;aspect-ratio:4/3;overflow:hidden;background:${p.bgFallback};cursor:pointer;">
+          <img src="${coverSrc}" alt="${p.titel}"
+               style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
+               onerror="this.style.display='none'">
+          <div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.62) 0%,transparent 55%);">
+            <div style="position:absolute;bottom:0;left:0;padding:1.5rem;">
+              <p style="font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.35rem;">${meta}</p>
+              <p style="font-size:1rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#fff;">${p.titel}</p>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+
+    document.querySelectorAll('.project-card[data-idx]').forEach(card => {
+      card.addEventListener('click', () => openLightbox(parseInt(card.dataset.idx)));
+    });
+
+    applyFilter(currentFilter);
+  }
+
+  /* ─── Filter ─────────────────────────────────────────────────────────── */
+  let currentFilter = 'alle';
+
+  function applyFilter(filter) {
+    currentFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.filter === filter);
+    });
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.dataset.hidden = (filter === 'alle' || card.dataset.cat === filter) ? '' : 'true';
+    });
+  }
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+  });
+
+  /* ─── Lightbox ───────────────────────────────────────────────────────── */
+  let lbProjektIdx = 0;
+  let lbBildIdx    = 0;
+
+  function openLightbox(projektIdx) {
+    lbProjektIdx = projektIdx;
+    const p = PROJEKTE[projektIdx];
+    lbBildIdx = p.bilder.indexOf(p.cover);
+    if (lbBildIdx < 0) lbBildIdx = 0;
+    document.getElementById('lightbox').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    lbUpdate();
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+    document.body.style.overflow = '';
+    document.getElementById('lbImg').src = '';
+  }
+
+  function lbNavigate(dir) {
+    const p = PROJEKTE[lbProjektIdx];
+    lbBildIdx = (lbBildIdx + dir + p.bilder.length) % p.bilder.length;
+    lbUpdate();
+  }
+
+  function lbUpdate() {
+    const p   = PROJEKTE[lbProjektIdx];
+    const img = document.getElementById('lbImg');
+    img.style.opacity = '0';
+    setTimeout(() => {
+      img.src = `images/projekte/${p.id}/${p.bilder[lbBildIdx]}`;
+      img.style.opacity = '1';
+    }, 150);
+    document.getElementById('lbMeta').textContent  = [p.ort, p.typ].filter(Boolean).join(' · ');
+    document.getElementById('lbTitel').textContent = p.titel;
+    document.getElementById('lbCounter').textContent = p.bilder.length > 1
+      ? `${lbBildIdx + 1} / ${p.bilder.length}` : '';
+    const multi = p.bilder.length > 1;
+    document.getElementById('lbPrev').style.display = multi ? '' : 'none';
+    document.getElementById('lbNext').style.display = multi ? '' : 'none';
+  }
+
+  /* ─── Keyboard ────────────────────────────────────────────────────────── */
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('lightbox').style.display !== 'flex') return;
+    if (e.key === 'ArrowLeft')  lbNavigate(-1);
+    if (e.key === 'ArrowRight') lbNavigate(1);
+    if (e.key === 'Escape')     closeLightbox();
+  });
+
+  /* ─── Touch / Swipe ──────────────────────────────────────────────────── */
+  (function () {
+    let sx = 0;
+    const area = document.getElementById('lbImageArea');
+    area.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+    area.addEventListener('touchend',   e => {
+      const diff = sx - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) lbNavigate(diff > 0 ? 1 : -1);
+    }, { passive: true });
+  })();
+
+  /* ─── Init ────────────────────────────────────────────────────────────── */
+  renderKarten();
+  </script>
+
+</body>
+</html>
