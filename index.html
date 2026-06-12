@@ -295,7 +295,11 @@
         <span id="lbMeta" style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:#6B7280;font-family:'Inter',sans-serif;"></span>
         <span id="lbTitel" style="font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:400;color:#C8C8C8;"></span>
       </div>
-      <div style="display:flex;align-items:center;gap:2.5rem;">
+      <div style="display:flex;align-items:center;gap:2rem;">
+        <div id="lbToggle" style="display:none;background:#1A1A1A;border:1px solid #333;border-radius:6px;overflow:hidden;padding:3px;gap:3px;flex-direction:row;">
+          <button id="btnVorher"  onclick="lbSetModus('vorher')"  style="background:#3A3A3A;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#fff;padding:0.45rem 1.1rem;border-radius:4px;transition:background 0.15s,color 0.15s;">Vorher</button>
+          <button id="btnNachher" onclick="lbSetModus('nachher')" style="background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#555;padding:0.45rem 1.1rem;border-radius:4px;transition:background 0.15s,color 0.15s;">Nachher</button>
+        </div>
         <span id="lbCounter" style="font-size:0.7rem;color:#6B7280;font-family:'Inter',sans-serif;letter-spacing:0.06em;"></span>
         <button onclick="closeLightbox()" style="background:none;border:none;cursor:pointer;color:#6B7280;font-size:1.6rem;line-height:1;padding:0.15rem 0.4rem;font-family:'Inter',sans-serif;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#6B7280'">×</button>
       </div>
@@ -360,23 +364,31 @@
       typ:        'Neubau',
       kategorie:  'neubau',
       bgFallback: '#D5D0C8',
-      cover:      '01.jpg',
-      bilder:     ['01.jpg'],
+      cover:      '03-3.jpg',
+      bilder:     ['01-1.jpg', '02-2.jpg', '03-3.jpg', '04-4.jpg', '05-5.jpg'],
     },
     {
-      id:         'einfamilienhaus-koelcke',
-      titel:      'Einfamilienhaus Kölcke',
+      id:         'einfamilienhaus-koecke',
+      titel:      'Einfamilienhaus Köcke',
       ort:        'Bad Honnef',
       typ:        'Neubau',
       kategorie:  'neubau',
       bgFallback: '#EAE8E4',
-      cover:      '03-3.jpg',
+      cover:      'Köcke 4.jpg',
       bilder:     [
-        '01-1.jpg',
-        '02-2.jpg',
-        '03-3.jpg',
-        '04-4.jpg',
-        '05-5.jpg',
+        'Köcke 4.jpg',
+        'Köcke 5.jpg',
+        'Köcke 7.jpg',
+        'Köcke 8.jpg',
+        'Köcke 10.jpg',
+        'Köcke 11.jpg',
+        'Köcke 12.jpg',
+        'Gemini_Generated_Image_.png',
+        'Gemini_Generated_Image_49ujhi49ujhi49uj.png',
+        'Gemini_Generated_Image_lx2pkhlx2pkhlx2p.png',
+        'Gemini_Generated_Image_o8jgnno8jgnno8jg.png',
+        'Gemini_Generated_Image_rwd83trwd83trwd8.png',
+        'Gemini_Generated_Image_u44sfou44sfou44s.png',
       ],
     },
     {
@@ -386,8 +398,8 @@
       typ:        'Neubau',
       kategorie:  'neubau',
       bgFallback: '#DDDAD4',
-      cover:      '1_2026-06-09_11_03_21.280649.jpeg',
-      bilder:     ['1_2026-06-09_11_03_21.280649.jpeg', '2_2026-06-09_11_03_21.580549.jpeg'],
+      cover:      'Unknown.jpg',
+      bilder:     ['Unknown.jpg', '2_2026-06-09_11_03_21.580549.jpeg'],
     },
     {
       id:         'finca-mallorca',
@@ -406,8 +418,12 @@
       typ:        'Neubau',
       kategorie:  'neubau',
       bgFallback: '#E0DDD7',
-      cover:      '01.jpg',
-      bilder:     ['01.jpg'],
+      cover:      'Gemini_Generated_Image_4zl8yn4zl8yn4zl8.png',
+      bilder:     [
+        'Gemini_Generated_Image_2r6cja2r6cja2r6c.png',
+        'Gemini_Generated_Image_4zl8yn4zl8yn4zl8.png',
+        'Gemini_Generated_Image_ouq5r4ouq5r4ouq5.png',
+      ],
     },
     // ── UMBAU ───────────────────────────────────────────────────────────
     {
@@ -417,18 +433,40 @@
       typ:        'Umbau & Sanierung',
       kategorie:  'umbau',
       bgFallback: '#EAE8E4',
-      cover:      '01.jpg',
-      bilder:     ['01.jpg'],
+      cover:      '42.jpg',
+      bilder:     [
+        '16-2.jpg',
+        '17.jpg',
+        '19.jpg',
+        '21.jpg',
+        '29.jpg',
+        '34.jpg',
+        '35.jpg',
+        '42.jpg',
+        '1_2026-06-09_11_31_36.765791.png',
+        '2_2026-06-09_11_31_37.041466.png',
+        '3_2026-06-09_11_31_37.251218.png',
+        '4_2026-06-09_11_31_37.545778.png',
+        '5_2026-06-09_11_31_37.751110.png',
+        '6_2026-06-09_11_31_37.969207.png',
+        '7_2026-06-09_11_31_38.203671.png',
+        '8_2026-06-09_11_31_38.446131.png',
+        '9_2026-06-09_11_31_38.644121.png',
+        '10_2026-06-09_11_31_38.916613.png',
+      ],
     },
     {
-      id:         'fachwerkhaus-erweiterung-koenigswinter',
-      titel:      'Fachwerkhaus-Erweiterung',
-      ort:        'Königswinter',
-      typ:        'Denkmalschutz',
-      kategorie:  'umbau',
-      bgFallback: '#D5D0C8',
-      cover:      '01.jpg',
-      bilder:     ['01.jpg'],
+      id:            'fachwerkhaus-erweiterung-koenigswinter',
+      titel:         'Fachwerkhaus-Erweiterung',
+      ort:           'Königswinter',
+      typ:           'Denkmalschutz',
+      kategorie:     'umbau',
+      bgFallback:    '#D5D0C8',
+      vorherNachher: true,
+      cover:         '8bbb9f26-cbcc-4cc6-9f0b-cfb5c68f1a2f.png',
+      bilder:        ['1.jpg', '8bbb9f26-cbcc-4cc6-9f0b-cfb5c68f1a2f.png'],
+      bilderVorher:  ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '10.jpg', '11.jpg', '15.jpg'],
+      bilderNachher: ['8bbb9f26-cbcc-4cc6-9f0b-cfb5c68f1a2f.png', 'e6486c4c-fdd5-4bab-886c-eaa3eb76ff5c.png'],
     },
     {
       id:         'anbau-firmenich',
@@ -437,8 +475,15 @@
       typ:        'Anbau',
       kategorie:  'umbau',
       bgFallback: '#E8E4DE',
-      cover:      '01.jpg',
-      bilder:     ['01.jpg'],
+      cover:      'odmzsj7s3zqxotyk77o6.jpeg',
+      bilder:     [
+        'beia4yyputpmabnekikp.jpeg',
+        'k0clr252yahkyu7nv7si.jpeg',
+        'oapmfpig9hsamhh5wqfp.jpeg',
+        'odmzsj7s3zqxotyk77o6.jpeg',
+        'oqh9kmjig4jj8pvcztol.jpeg',
+        'sqnb4ypjatfkieouhgdi.jpeg',
+      ],
     },
     {
       id:         'fachwerkhaus-umbau-spiessgasse',
@@ -447,8 +492,17 @@
       typ:        'Denkmalschutz',
       kategorie:  'umbau',
       bgFallback: '#DDDAD4',
-      cover:      '01.jpg',
-      bilder:     ['01.jpg'],
+      cover:      'FWH 1.jpg',
+      bilder:     [
+        'FWH 1.jpg',
+        'FWH 2.jpg',
+        'FWH 3.jpg',
+        'FWH 4.jpg',
+        'FWH 5.jpg',
+        'FWH 6.jpg',
+        'FWH 7.jpg',
+        'FWH 8.jpg',
+      ],
     },
     {
       id:         'modernisierung-hoefling',
@@ -457,8 +511,18 @@
       typ:        'Sanierung',
       kategorie:  'umbau',
       bgFallback: '#C8C3BA',
-      cover:      '01.jpg',
-      bilder:     ['01.jpg'],
+      cover:      'ho_fling_1_2026-06-11_14_00_52.207468.webp',
+      bilder:     [
+        'ho_fling_1_2026-06-11_14_00_52.207468.webp',
+        'Ho_fling_2_2026-06-11_14_00_52.579208.webp',
+        'Höfling 3.jpg',
+        'Höfling 4.jpg',
+        'Höfling 5.jpg',
+        'Höfling 6.jpg',
+        'Höfling 7.jpg',
+        'Höfling 8.jpg',
+        'Höfling 9.jpg',
+      ],
     },
     // ── GEWERBE ─────────────────────────────────────────────────────────
     {
@@ -493,8 +557,15 @@
       typ:        'Gewerbe',
       kategorie:  'gewerbe',
       bgFallback: '#D5D0C8',
-      cover:      '01.jpg',
-      bilder:     ['01.jpg'],
+      cover:      'GG_Bonn_3_2026-06-11_13_46_12.770783.webp',
+      bilder:     [
+        'GG_Bonn_1_2026-06-11_13_46_12.377174.webp',
+        'GG_Bonn_2_2026-06-11_13_46_12.587270.webp',
+        'GG_Bonn_3_2026-06-11_13_46_12.770783.webp',
+        'GG_Bonn_4_2026-06-11_13_46_12.886626.webp',
+        'GG_Bonn_5_2026-06-11_13_46_13.097281.webp',
+        'GG_Bonn_6_2026-06-11_13_46_13.322964.webp',
+      ],
     },
     {
       id:         'altenpflegeheim-bad-muenstereifel',
@@ -503,8 +574,13 @@
       typ:        'Umbau',
       kategorie:  'gewerbe',
       bgFallback: '#DDDAD4',
-      cover:      '01.jpg',
-      bilder:     ['01.jpg'],
+      cover:      'AH_1_2026-06-11_13_46_11.087749.webp',
+      bilder:     [
+        'AH_1_2026-06-11_13_46_11.087749.webp',
+        'AH_2_2026-06-11_13_46_11.802956.webp',
+        'AH_3_2026-06-11_13_46_12.015949.webp',
+        'AH_4_2026-06-11_13_46_12.181600.webp',
+      ],
     },
     {
       id:         'biogeschaeft-momo',
@@ -513,8 +589,13 @@
       typ:        'Gewerbe',
       kategorie:  'gewerbe',
       bgFallback: '#E8E4DE',
-      cover:      '01.jpg',
-      bilder:     ['01.jpg'],
+      cover:      'Momo_1_2026-06-11_13_46_13.459679.webp',
+      bilder:     [
+        'Momo_1_2026-06-11_13_46_13.459679.webp',
+        'Momo_2_2026-06-11_13_46_13.800216.webp',
+        'Momo_3_2026-06-11_13_46_13.905847.webp',
+        'Momo_4_2026-06-11_13_46_14.097621.webp',
+      ],
     },
     {
       id:         'fertigturnhalle-hager-hof',
@@ -523,8 +604,11 @@
       typ:        'Sport',
       kategorie:  'gewerbe',
       bgFallback: '#C8C3BA',
-      cover:      '01.jpg',
-      bilder:     ['01.jpg'],
+      cover:      'Turnhalle_1_2026-06-11_13_46_14.263873.webp',
+      bilder:     [
+        'Turnhalle_1_2026-06-11_13_46_14.263873.webp',
+        'Turnhalle_2_2026-06-11_13_46_14.452088.webp',
+      ],
     },
   ];
 
@@ -576,11 +660,33 @@
   /* ─── Lightbox ───────────────────────────────────────────────────────── */
   let lbProjektIdx = 0;
   let lbBildIdx    = 0;
+  let lbModus      = 'nachher';
+
+  function lbBilderAktuell() {
+    const p = PROJEKTE[lbProjektIdx];
+    if (!p.vorherNachher) return p.bilder;
+    return lbModus === 'vorher' ? p.bilderVorher : p.bilderNachher;
+  }
+
+  function lbSetModus(modus) {
+    lbModus   = modus;
+    lbBildIdx = 0;
+    document.getElementById('btnVorher').style.background  = modus === 'vorher'  ? '#3A3A3A' : 'none';
+    document.getElementById('btnNachher').style.background = modus === 'nachher' ? '#3A3A3A' : 'none';
+    document.getElementById('btnVorher').style.color  = modus === 'vorher'  ? '#fff' : '#555';
+    document.getElementById('btnNachher').style.color = modus === 'nachher' ? '#fff' : '#555';
+    lbUpdate();
+  }
 
   function openLightbox(projektIdx) {
     lbProjektIdx = projektIdx;
+    lbModus      = 'nachher';
     const p = PROJEKTE[projektIdx];
-    lbBildIdx = p.bilder.indexOf(p.cover);
+    const toggle = document.getElementById('lbToggle');
+    toggle.style.display = p.vorherNachher ? 'flex' : 'none';
+    if (p.vorherNachher) lbSetModus('nachher');
+    const bilder = lbBilderAktuell();
+    lbBildIdx = bilder.indexOf(p.cover);
     if (lbBildIdx < 0) lbBildIdx = 0;
     document.getElementById('lightbox').style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -594,24 +700,25 @@
   }
 
   function lbNavigate(dir) {
-    const p = PROJEKTE[lbProjektIdx];
-    lbBildIdx = (lbBildIdx + dir + p.bilder.length) % p.bilder.length;
+    const bilder = lbBilderAktuell();
+    lbBildIdx = (lbBildIdx + dir + bilder.length) % bilder.length;
     lbUpdate();
   }
 
   function lbUpdate() {
-    const p   = PROJEKTE[lbProjektIdx];
-    const img = document.getElementById('lbImg');
+    const p      = PROJEKTE[lbProjektIdx];
+    const bilder = lbBilderAktuell();
+    const img    = document.getElementById('lbImg');
     img.style.opacity = '0';
     setTimeout(() => {
-      img.src = `images/projekte/${p.id}/${p.bilder[lbBildIdx]}`;
+      img.src = `images/projekte/${p.id}/${bilder[lbBildIdx]}`;
       img.style.opacity = '1';
     }, 150);
     document.getElementById('lbMeta').textContent  = [p.ort, p.typ].filter(Boolean).join(' · ');
     document.getElementById('lbTitel').textContent = p.titel;
-    document.getElementById('lbCounter').textContent = p.bilder.length > 1
-      ? `${lbBildIdx + 1} / ${p.bilder.length}` : '';
-    const multi = p.bilder.length > 1;
+    document.getElementById('lbCounter').textContent = bilder.length > 1
+      ? `${lbBildIdx + 1} / ${bilder.length}` : '';
+    const multi = bilder.length > 1;
     document.getElementById('lbPrev').style.display = multi ? '' : 'none';
     document.getElementById('lbNext').style.display = multi ? '' : 'none';
   }
