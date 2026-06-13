@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leistungsphasen 1-9 - Martin Bünger Architekt, Bad Honnef</title>
+  <meta name="description" content="Planung und Ausführung nach HOAI: von der Grundlagenermittlung über die Genehmigungsplanung bis zur Bauüberwachung. Architekt für Bad Honnef, Bonn und das Rhein-Sieg-Kreis.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #0D0D0D; -webkit-font-smoothing: antialiased; }
+    a { transition: color 0.2s; text-decoration: none; }
+    a:hover { color: #000 !important; }
+    .link-on-dark:hover { color: #fff !important; opacity: 0.7; }
+
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details > summary::marker { display: none; }
+    .acc-icon { transition: transform 0.25s ease; display: inline-block; }
+    details[open] .acc-icon { transform: rotate(45deg); }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 50%;
+      padding-top: 0.75rem;
+      opacity: 0; visibility: hidden;
+      transform: translateX(-50%) translateY(4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      opacity: 1; visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu-inner {
+      background: #fff; border: 1px solid #E5E5E5;
+      min-width: 280px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+    }
+    .nav-dropdown-menu a {
+      display: block; padding: 0.8rem 1.4rem;
+      font-size: 0.76rem; color: #4B4B4B !important;
+      letter-spacing: 0.04em; text-transform: none;
+      line-height: 1.4; text-align: left;
+      border-bottom: 1px solid #E5E5E5;
+    }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: #F7F7F7; color: #0D0D0D !important; }
+
+    .page-layout { display: grid; grid-template-columns: minmax(120px, 180px) 1fr; }
+    .image-strip { display: flex; flex-direction: column; gap: 0; padding: 0; height: 100%; }
+    .image-strip-item { flex: 1; min-height: 0; overflow: hidden; background: #E8E4DE; }
+    .image-strip-item img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .page-layout { grid-template-columns: 1fr; }
+      .image-strip { display: none; }
+    }
+    @media (max-width: 768px) {
+      .leistung-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:1.5rem 6%;position:sticky;top:0;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #E5E5E5;z-index:100;">
+    <a href="../index.html" style="font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:#0D0D0D;">Martin Bünger Architekt</a>
+    <div class="nav-links" style="display:flex;gap:2.5rem;align-items:center;">
+      <div class="nav-dropdown">
+        <a href="../index.html#leistungen" style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Leistungen</a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="leistungsphasen.html">Leistungsphasen 1-9</a>
+            <a href="kaufberatung.html">Kaufberatung</a>
+            <a href="bauleitung.html">Bauleitung</a>
+            <a href="antraege.html">Abgeschlossenheitsbescheinigung & Bauvoranfrage</a>
+          </div>
+        </div>
+      </div>
+      <a href="../index.html#projekte" style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Projekte</a>
+      <a href="../index.html#buero"    style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Über uns</a>
+      <a href="../index.html#kontakt"  style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Kontakt</a>
+    </div>
+  </nav>
+
+  <div class="page-layout">
+
+    <!-- BILDERLEISTE -->
+    <div class="image-strip">
+      <div class="image-strip-item">
+        <img src="../images/projekte/kita-zedernpark/00-Bv Zedernpark 1.jpg" alt="Neubauprojekt, Außenansicht">
+      </div>
+      <div class="image-strip-item">
+        <img src="../images/projekte/mehrfamilienhaus-tiedke/01-1.jpg" alt="Mehrfamilienhaus, Fassade">
+      </div>
+      <div class="image-strip-item">
+        <img src="../images/projekte/dachausbau-einfamilienhaus/29.jpg" alt="Innenausbau, Treppenhaus">
+      </div>
+    </div>
+
+    <div>
+
+      <!-- HERO -->
+      <section style="padding:6rem 6% 4rem;">
+        <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#9CA3AF;margin-bottom:1.5rem;">Planung & Ausführung</p>
+        <h1 style="font-family:'DM Sans',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.12;letter-spacing:-0.025em;color:#0D0D0D;max-width:780px;">
+          Leistungsphasen 1-9.
+        </h1>
+      </section>
+
+      <!-- INHALT -->
+      <section style="padding:1rem 6% 6rem;">
+        <div class="leistung-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start;">
+      <div>
+        <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.5;color:#0D0D0D;">
+          Von der ersten Idee bis zur Schlüsselübergabe begleiten wir Ihr Bauvorhaben lückenlos durch alle neun Leistungsphasen nach HOAI.
+        </p>
+
+        <details style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid #E5E5E5;">
+          <summary style="display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:400;color:#0D0D0D;">
+            <span>Warum ist eine Begleitung wichtig?</span>
+            <span class="acc-icon" style="flex-shrink:0;font-size:1.3rem;font-weight:300;color:#9CA3AF;line-height:1;">+</span>
+          </summary>
+          <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.85rem;">
+            <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">
+              Ein Bauvorhaben gehört zu den komplexesten Projekten, die die meisten Menschen einmal im Leben verantworten, mit vielen Beteiligten, technischen Anforderungen und gesetzlichen Vorgaben.
+            </p>
+            <ul style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;padding-left:1.2rem;display:flex;flex-direction:column;gap:0.6rem;">
+              <li><strong style="color:#0D0D0D;font-weight:500;">Unabhängige Interessenvertretung:</strong> Anders als ausführende Betriebe sind wir ausschließlich Ihnen verpflichtet und vertreten Ihre Interessen gegenüber Behörden und Handwerksbetrieben.</li>
+              <li><strong style="color:#0D0D0D;font-weight:500;">Rechtssicherheit:</strong> Bauanträge, Brandschutz- und Statiknachweise sowie die Einhaltung der Landesbauordnung erfordern Fachwissen, das über Jahre aufgebaut wird.</li>
+              <li><strong style="color:#0D0D0D;font-weight:500;">Kostenkontrolle:</strong> Eine sorgfältige Planung und Ausschreibung senkt das Risiko teurer Nachträge während der Bauphase deutlich.</li>
+              <li><strong style="color:#0D0D0D;font-weight:500;">Qualitätssicherung:</strong> Durch regelmäßige Begehungen erkennen wir Mängel, solange sie sich noch unkompliziert beheben lassen, oft bevor sie unter Putz oder Bodenbelag verschwinden.</li>
+              <li><strong style="color:#0D0D0D;font-weight:500;">Reibungsloser Ablauf:</strong> Die Koordination aller Gewerke verhindert Verzögerungen durch Schnittstellenprobleme zwischen den beteiligten Firmen.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+
+        <div style="padding-bottom:2rem;border-bottom:1px solid #E5E5E5;">
+          <p style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:0.6rem;">LP 1-5</p>
+          <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Vorentwurf bis Ausführungsplanung</p>
+          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Wir klären die Grundlagen Ihres Vorhabens, entwickeln Entwurf und Genehmigungsplanung, holen die Baugenehmigung ein und erstellen die Werkpläne für die Handwerksbetriebe.</p>
+        </div>
+
+        <div style="padding:2rem 0;border-bottom:1px solid #E5E5E5;">
+          <p style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:0.6rem;">LP 6-7</p>
+          <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Vorbereitung & Mitwirkung bei der Vergabe</p>
+          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Wir erstellen Leistungsverzeichnisse, holen Angebote ein und unterstützen Sie bei der Auswahl geeigneter Handwerksbetriebe.</p>
+        </div>
+
+        <div style="padding-top:2rem;">
+          <p style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:0.6rem;">LP 8-9</p>
+          <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Objektüberwachung & Objektbetreuung</p>
+          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Auf Wunsch begleiten wir die Bauausführung vor Ort und stehen Ihnen auch nach Fertigstellung als Ansprechpartner zur Verfügung. Mehr dazu unter <a href="bauleitung.html" style="color:#0D0D0D;border-bottom:1px solid #D1D1D1;">Bauleitung</a>.</p>
+        </div>
+
+      </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section style="padding:6rem 6%;background:#0D0D0D;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#6B7280;margin-bottom:1.5rem;">Anfrage</p>
+      <h2 style="font-family:'DM Sans',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;line-height:1.2;letter-spacing:-0.025em;color:#fff;margin-bottom:2rem;max-width:600px;">
+        Lassen Sie uns über Ihr Bauvorhaben sprechen.
+      </h2>
+      <a href="mailto:martin.buenger@t-online.de?subject=Anfrage%20Leistungsphasen%201-9" class="link-on-dark" style="font-size:1rem;color:#fff;border-bottom:1px solid rgba(255,255,255,0.28);padding-bottom:3px;">
+        martin.buenger@t-online.de
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:1.5rem 6%;border-top:1px solid #E5E5E5;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+    <p style="font-size:0.7rem;color:#9CA3AF;letter-spacing:0.04em;">© 2026 Architekturbüro Martin Bünger. Alle Rechte vorbehalten.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="../impressum.html" style="font-size:0.7rem;color:#9CA3AF;letter-spacing:0.04em;">Impressum</a>
+      <a href="../datenschutz.html" style="font-size:0.7rem;color:#9CA3AF;letter-spacing:0.04em;">Datenschutz</a>
+    </div>
+  </footer>
+
+</body>
+</html>

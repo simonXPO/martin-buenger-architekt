@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Martin Bünger Architekt — Bad Honnef</title>
+  <title>Martin Bünger Architekt - Bad Honnef</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,12 +29,39 @@
     .project-card[data-hidden="true"] { display: none; }
     .link-on-dark:hover { color: #fff !important; opacity: 0.7; }
 
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 50%;
+      padding-top: 0.75rem;
+      opacity: 0; visibility: hidden;
+      transform: translateX(-50%) translateY(4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      opacity: 1; visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu-inner {
+      background: #fff; border: 1px solid #E5E5E5;
+      min-width: 280px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+    }
+    .nav-dropdown-menu a {
+      display: block; padding: 0.8rem 1.4rem;
+      font-size: 0.76rem; color: #4B4B4B !important;
+      letter-spacing: 0.04em; text-transform: none;
+      line-height: 1.4; text-align: left;
+      border-bottom: 1px solid #E5E5E5;
+    }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: #F7F7F7; color: #0D0D0D !important; }
+
     @media (max-width: 900px) {
       .nav-links { display: none; }
     }
     @media (max-width: 768px) {
       .about-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
-      .vita-grid  { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
       .leistungen-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
       .kontakt-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
       .project-grid { grid-template-columns: 1fr !important; }
@@ -76,10 +103,19 @@
       Martin Bünger Architekt
     </a>
     <div class="nav-links" style="display:flex;gap:2.5rem;align-items:center;">
-      <a href="#leistungen" style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Leistungen</a>
+      <div class="nav-dropdown">
+        <a href="#leistungen" style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Leistungen</a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="leistungen/leistungsphasen.html">Leistungsphasen 1-9</a>
+            <a href="leistungen/kaufberatung.html">Kaufberatung</a>
+            <a href="leistungen/bauleitung.html">Bauleitung</a>
+            <a href="leistungen/antraege.html">Abgeschlossenheitsbescheinigung & Bauvoranfrage</a>
+          </div>
+        </div>
+      </div>
       <a href="#projekte" style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Projekte</a>
-      <a href="#buero"    style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Büro</a>
-      <a href="#vita"     style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Vita</a>
+      <a href="#buero"    style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Über uns</a>
       <a href="#kontakt"  style="font-size:0.76rem;color:#4B4B4B;letter-spacing:0.06em;text-transform:uppercase;">Kontakt</a>
     </div>
   </nav>
@@ -93,7 +129,7 @@
     <div style="position:absolute;inset:0;display:flex;align-items:flex-end;">
       <div style="padding:3rem 6%;max-width:780px;">
         <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#4B4B4B;margin-bottom:0.9rem;">
-          Architekturbüro Bad Honnef — seit 1998
+          Architekturbüro Bad Honnef, seit 1998
         </p>
         <h1 style="font-family:'DM Sans',sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;line-height:1.08;letter-spacing:-0.025em;color:#0D0D0D;margin:0;">
           Architektur,<br>die bleibt.
@@ -105,7 +141,7 @@
   <!-- ═══ INTRO ═══ -->
   <section style="padding:5.5rem 6%;">
     <p style="font-family:'DM Sans',sans-serif;font-size:clamp(1.1rem,2vw,1.42rem);font-weight:300;line-height:1.72;color:#0D0D0D;letter-spacing:-0.01em;max-width:800px;">
-      Seit 1998 begleitet Martin Bünger Bauherren in der Region zwischen Bonn und dem Siebengebirge — vom ersten Entwurf bis zur Fertigstellung. Das Büro steht für präzises Handwerk, klare Haltung und eine Architektur, die dem Ort und den Menschen gerecht wird.
+      Seit 1998 begleiten wir als Architekturbüro Bauherren in der Region zwischen Bonn und dem Siebengebirge, vom ersten Entwurf bis zur Fertigstellung. Unser Büro steht für präzises Handwerk, klare Haltung und eine Architektur, die dem Ort und den Menschen gerecht wird.
     </p>
   </section>
 
@@ -115,28 +151,34 @@
       <div>
         <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#9CA3AF;margin-bottom:1.5rem;">Leistungen</p>
         <h2 style="font-family:'DM Sans',sans-serif;font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:300;line-height:1.28;letter-spacing:-0.02em;color:#0D0D0D;">
-          Vollständige<br>Betreuung —<br>von Anfang<br>bis Ende.
+          Vollständige<br>Betreuung,<br>von Anfang<br>bis Ende.
         </h2>
       </div>
       <div>
 
-        <div style="padding-bottom:2rem;border-bottom:1px solid #E5E5E5;">
+        <a href="leistungen/leistungsphasen.html" style="display:block;padding-bottom:2rem;border-bottom:1px solid #E5E5E5;color:inherit;">
           <p style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:0.6rem;">Planung & Ausführung</p>
-          <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Alle Leistungsphasen 1–9</p>
-          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Von der Grundlagenermittlung und dem ersten Entwurf über Genehmigungs- und Ausführungsplanung bis zur Objektüberwachung und finalen Objektbetreuung — das Büro begleitet jedes Projekt lückenlos durch alle neun Leistungsphasen nach HOAI.</p>
-        </div>
+          <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Leistungsphasen 1-9</p>
+          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Von der Grundlagenermittlung und dem ersten Entwurf über Genehmigungs- und Ausführungsplanung bis zur Objektüberwachung und finalen Objektbetreuung begleiten wir Ihr Projekt durch alle neun Leistungsphasen nach HOAI.</p>
+        </a>
 
-        <div style="padding:2rem 0;border-bottom:1px solid #E5E5E5;">
+        <a href="leistungen/kaufberatung.html" style="display:block;padding:2rem 0;border-bottom:1px solid #E5E5E5;color:inherit;">
           <p style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:0.6rem;">Beratung</p>
           <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Kaufberatung</p>
-          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Fundierte Einschätzung von Bestandsimmobilien vor dem Kauf: Bausubstanz, Entwicklungspotenzial und mögliche Risiken — für eine sichere Entscheidungsgrundlage.</p>
-        </div>
+          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Vor dem Kauf einer Immobilie prüfen wir Bausubstanz, Entwicklungspotenzial und mögliche Risiken, für eine sichere Entscheidungsgrundlage.</p>
+        </a>
 
-        <div style="padding-top:2rem;">
-          <p style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:0.6rem;">Wohnungseigentum</p>
-          <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Abgeschlossenheitsbescheinigung</p>
-          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Erstellung der erforderlichen Anträge und Unterlagen zur Bescheinigung der Abgeschlossenheit von Wohnungs- und Teileigentum — Voraussetzung für die Begründung von Wohnungseigentum nach WEG.</p>
-        </div>
+        <a href="leistungen/bauleitung.html" style="display:block;padding:2rem 0;border-bottom:1px solid #E5E5E5;color:inherit;">
+          <p style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:0.6rem;">Vor Ort</p>
+          <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Bauleitung</p>
+          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Mit einem eingespielten Team aus Handwerksbetrieben übernehmen wir die Bauleitung und behalten Qualität, Termine und Kosten im Blick.</p>
+        </a>
+
+        <a href="leistungen/antraege.html" style="display:block;padding-top:2rem;color:inherit;">
+          <p style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;margin-bottom:0.6rem;">Außerdem</p>
+          <p style="font-size:1.05rem;font-family:'DM Sans',sans-serif;font-weight:400;color:#0D0D0D;margin-bottom:0.6rem;">Abgeschlossenheitsbescheinigung & Bauvoranfrage</p>
+          <p style="font-size:0.88rem;color:#4B4B4B;line-height:1.75;">Wir erstellen die erforderlichen Anträge und Unterlagen, etwa zur Bescheinigung der Abgeschlossenheit von Wohnungs- und Teileigentum oder für Bauvoranfragen bei den zuständigen Behörden.</p>
+        </a>
 
       </div>
     </div>
@@ -160,91 +202,33 @@
     <div class="project-grid" id="projektGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:2px;"></div>
   </section>
 
-  <!-- ═══ BÜRO / ABOUT ═══ -->
+  <!-- ═══ ÜBER UNS ═══ -->
   <section id="buero" style="padding:7rem 6%;background:#F7F7F7;">
-    <div class="about-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start;">
+    <div class="about-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:4rem;align-items:start;">
       <div>
-        <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#9CA3AF;margin-bottom:1.5rem;">Büro</p>
+        <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#9CA3AF;margin-bottom:1.5rem;">Über uns</p>
         <h2 style="font-family:'DM Sans',sans-serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:300;line-height:1.2;letter-spacing:-0.02em;color:#0D0D0D;">
-          Martin Bünger<br>Architekturbüro<br>seit 1998
+          Über 25 Jahre<br>Erfahrung,<br>viele Projekte
         </h2>
       </div>
       <div>
+        <p style="font-size:1rem;color:#4B4B4B;line-height:1.82;margin-bottom:1.5rem;">
+          Seit 1998 haben wir eine Vielzahl von Bauvorhaben in der Region zwischen Bonn und dem Siebengebirge geplant und begleitet, vom privaten Einfamilienhaus über Mehrfamilienhäuser und die Sanierung historischer Fachwerkhäuser bis hin zu größeren Vorhaben wie der Schulerweiterung am Hagerhof. Diese Vielfalt an Aufgaben und Maßstäben prägt unsere Arbeit bis heute.
+        </p>
         <p style="font-size:1rem;color:#4B4B4B;line-height:1.82;margin-bottom:2.5rem;">
-          Architektur entsteht zwischen Funktion und Form, zwischen dem Wunsch des Bauherrn und den Möglichkeiten des Ortes. Martin Bünger verbindet ein Architekturstudium an der FH Köln mit einer früheren Ausbildung als Metallbildhauer — ein Hintergrund, der das Gespür für Material, Proportion und handwerkliche Präzision schärft. Das Büro in Bad Honnef betreut Projekte in der gesamten Region, vom privaten Einfamilienhaus bis zur öffentlichen Einrichtung, vom Neubau bis zur denkmalgerechten Restaurierung.
+          Im Büro arbeiten Martin Bünger (Architekt) und Markus Kirschner (Bauzeichner) als eingespieltes Team zusammen und begleiten jedes Projekt von der ersten Skizze bis zur Ausführung.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
           <span style="font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid #D1D1D1;padding:0.35rem 0.85rem;color:#4B4B4B;">Ein- & Mehrfamilienhäuser</span>
           <span style="font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid #D1D1D1;padding:0.35rem 0.85rem;color:#4B4B4B;">Barrierefreies Bauen</span>
           <span style="font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid #D1D1D1;padding:0.35rem 0.85rem;color:#4B4B4B;">Büro- & Gewerbeobjekte</span>
+          <span style="font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid #D1D1D1;padding:0.35rem 0.85rem;color:#4B4B4B;">Öffentliche Gebäude</span>
           <span style="font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid #D1D1D1;padding:0.35rem 0.85rem;color:#4B4B4B;">Kaufberatung</span>
           <span style="font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;border:1px solid #D1D1D1;padding:0.35rem 0.85rem;color:#4B4B4B;">Restaurierungen</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══ VITA ═══ -->
-  <section id="vita" style="padding:7rem 6%;">
-    <div style="max-width:1280px;margin:0 auto;">
-      <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#9CA3AF;margin-bottom:4rem;">Vita</p>
-      <div class="vita-grid" style="display:grid;grid-template-columns:1fr 2fr;gap:6rem;">
-
-        <div>
-          <h2 style="font-family:'DM Sans',sans-serif;font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:300;line-height:1.28;letter-spacing:-0.02em;color:#0D0D0D;">
-            Martin Bünger<br>Architekt
-          </h2>
-          <p style="font-size:0.82rem;color:#9CA3AF;margin-top:1.2rem;line-height:1.7;">
-            Geb. 13. August 1959<br>in Bonn-Beuel
-          </p>
-          <p style="font-size:0.78rem;color:#9CA3AF;margin-top:1.3rem;line-height:1.7;">
-            Architektenkammer NRW<br>Mitgliedsnr. A 27058
-          </p>
-        </div>
-
-        <div style="display:flex;flex-direction:column;gap:0;">
-
-          <div style="display:grid;grid-template-columns:120px 1fr;gap:2rem;padding-bottom:2rem;border-bottom:1px solid #E5E5E5;">
-            <p style="font-size:0.74rem;color:#9CA3AF;letter-spacing:0.04em;padding-top:3px;">1983 – 1992</p>
-            <div>
-              <p style="font-size:0.95rem;color:#0D0D0D;margin-bottom:0.3rem;">Architekturstudium</p>
-              <p style="font-size:0.85rem;color:#4B4B4B;line-height:1.65;">Fachhochschule Köln, mit paralleler Tätigkeit in verschiedenen Architekturbüros</p>
-            </div>
-          </div>
-
-          <div style="display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid #E5E5E5;">
-            <p style="font-size:0.74rem;color:#9CA3AF;letter-spacing:0.04em;padding-top:3px;">1983 – 1986</p>
-            <div>
-              <p style="font-size:0.95rem;color:#0D0D0D;margin-bottom:0.3rem;">Kunststudium Metallbildhauerei</p>
-              <p style="font-size:0.85rem;color:#4B4B4B;line-height:1.65;">Köln, Ubierring</p>
-            </div>
-          </div>
-
-          <div style="display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid #E5E5E5;">
-            <p style="font-size:0.74rem;color:#9CA3AF;letter-spacing:0.04em;padding-top:3px;">1992 – 1993</p>
-            <div>
-              <p style="font-size:0.95rem;color:#0D0D0D;margin-bottom:0.3rem;">Freiberufliche Architekturtätigkeit</p>
-              <p style="font-size:0.85rem;color:#4B4B4B;line-height:1.65;">Köln</p>
-            </div>
-          </div>
-
-          <div style="display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid #E5E5E5;">
-            <p style="font-size:0.74rem;color:#9CA3AF;letter-spacing:0.04em;padding-top:3px;">1993 – 1998</p>
-            <div>
-              <p style="font-size:0.95rem;color:#0D0D0D;margin-bottom:0.3rem;">Angestellter Architekt</p>
-              <p style="font-size:0.85rem;color:#4B4B4B;line-height:1.65;">Schütz & Partner — Projekt- und Büroleitungsaufgaben</p>
-            </div>
-          </div>
-
-          <div style="display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:2rem 0;">
-            <p style="font-size:0.74rem;color:#9CA3AF;letter-spacing:0.04em;padding-top:3px;">Seit 1998</p>
-            <div>
-              <p style="font-size:0.95rem;color:#0D0D0D;margin-bottom:0.3rem;">Eigenes Architekturbüro</p>
-              <p style="font-size:0.85rem;color:#4B4B4B;line-height:1.65;">Bad Honnef — Leitung des Architekturbüros Martin Bünger</p>
-            </div>
-          </div>
-
-        </div>
+      <div style="aspect-ratio:3/4;background:#E0DDD7;border:1px dashed #C9C5BE;display:flex;align-items:center;justify-content:center;">
+        <p style="font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:#9CA3AF;text-align:center;padding:1rem;">Bild Büro / Team<br>folgt</p>
       </div>
     </div>
   </section>
@@ -273,7 +257,7 @@
 
   <!-- ═══ FOOTER ═══ -->
   <footer style="padding:1.5rem 6%;background:#0D0D0D;border-top:1px solid #1A1A1A;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
-    <p style="font-size:0.7rem;color:#4B5563;letter-spacing:0.04em;">© 2025 Architekturbüro Martin Bünger. Alle Rechte vorbehalten.</p>
+    <p style="font-size:0.7rem;color:#4B5563;letter-spacing:0.04em;">© 2026 Architekturbüro Martin Bünger. Alle Rechte vorbehalten.</p>
 
     <!-- Architektenkammer-Zeichen -->
     <a href="https://www.aknw.de" target="_blank" rel="noopener" title="Eingetragen bei der Architektenkammer NRW · A 27058" style="display:flex;align-items:center;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='0.45'">
@@ -617,7 +601,7 @@
     const grid = document.getElementById('projektGrid');
     grid.innerHTML = PROJEKTE.map((p, i) => {
       const coverSrc = `images/projekte/${p.id}/${p.cover}`;
-      const meta = [p.ort, p.typ].filter(Boolean).join(' — ');
+      const meta = [p.ort, p.typ].filter(Boolean).join(' · ');
       return `
         <div class="project-card" data-cat="${p.kategorie}" data-idx="${i}"
              style="position:relative;aspect-ratio:4/3;overflow:hidden;background:${p.bgFallback};cursor:pointer;">
